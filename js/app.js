@@ -53,7 +53,7 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//handle input -- this isn't working yet. 
+//Handle input. This is where the arrow keys get hooked 
 Player.prototype.handleInput = function(direction) {
    if (direction == "left") {
     this.x = this.x - 90;
@@ -69,12 +69,42 @@ Player.prototype.handleInput = function(direction) {
    }
 };
 
-function creatEnemies{
-    for(i 1 to 100)
+var allEnemies = [ new Enemy(0,50,100), new Enemy(0,140,200), new Enemy(0,230,50)];
+//need help here
+
+
+//This function is being called in the updated function 
+//in engine.js. That means ther is a chance that bugs 
+//will be made every time the game engine "ticks" The 
+//probability of a bug getting created is 2%
+function createEnemy(){
+    //The probably of bugs being made every tick is 2%
+    if(Math.random()<.02){
+        //Using a random number generator to decide which 
+        //row (y position) the bugs will end up in (1, 2, 3)
+        yPosRand = Math.floor((Math.random() * 3) + 1);
+
+        if(yPosRand == 1){
+            yPosRandUpdate = 50;
+        }
+         if(yPosRand == 2){
+            yPosRandUpdate = 140;
+        }
+         if(yPosRand == 3){
+            yPosRandUpdate = 230;
+        }
+
+        //The first random number is the x positon which can start up to -300 away
+        //The second number is the y position which can be 50, 140 or 230
+        //The third number is the speed
+        var enemy1 = new Enemy( Math.floor((Math.random()*-300) + 1), yPosRandUpdate,  Math.floor((Math.random() * 200) + 100));
+        allEnemies.push(enemy1);
+    }
 }
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [ new Enemy(0,50,100), new Enemy(0,140,200), new Enemy(0,230,50)]
+//var allEnemies = [ new Enemy(0,50,100), new Enemy(0,140,200), new Enemy(0,230,50)]
 // Place the player object in a variable called player
 var player = new Player();
 

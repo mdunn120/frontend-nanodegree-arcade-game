@@ -1,6 +1,11 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this [rubric](https://www.udacity.com/course/viewer/#!/c-nd001/l-2696458597/m-2687128535) for self-checking their submission.
+--Installation--
+1. Clone the repository onto your computer 
+2. Drag and Drop the index.html file into the Chrome browser. You should see a game board, three rows of bugs moving accross the screen, and a player in the bottom center of the screen.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+--Usage--
+How to win: Move the player to the other side without colliding with the bugs. If you are able to move the player to the other side, the player will start again at the bottom of the screen.
+
+How to Move: Use the up, down, left and right keys to move the player 

@@ -83,13 +83,16 @@ var Engine = (function(global) {
         checkCollisions();
         checkWin();
         checkOutOfBounds();
+        createEnemy();
     }
     //This function checks to see if the player has collided with an enemy 
     function checkCollisions() {
     //If the player collides with a bug then the player needs to restart
         allEnemies.forEach(function(enemy){
-            //if the distance is close enough (based on abolsute value) between the player and the enemy,
-            //then count it as a collision and set the player's position back to the starting position 
+            //If the distance is close enough (based on abolsute value) 
+            //between the player and the enemy, then count it as a 
+            //collision and set the player's position back to the starting 
+            //position 
             if ((Math.abs(enemy.x - player.x) < 50) && (Math.abs(enemy.y - player.y) < 50)) {
                 //console.log((Math.abs(enemy.x - player.x)));
                 player.x = 202;
@@ -97,17 +100,24 @@ var Engine = (function(global) {
             }
         });
     }
-    //This function checks to see if the player has won, by making it past the last bug
+    //This function checks to see if the player has won, by making it 
+    //past the last bug
     function checkWin() {
         if(player.y < 30){
             player.x = 202;
             player.y = 405;
         }
     }
-    //This function checks to see if the player it out of bounds
+    //This function checks to see if the player is out of bounds
     function checkOutOfBounds() {
         if(player.y > 405){
             player.y = 405;
+        }
+        if(player.x < 0){
+            player.x = 0;
+        }
+        if(player.x > 400){
+            player.x = 400;
         }
     }
 
